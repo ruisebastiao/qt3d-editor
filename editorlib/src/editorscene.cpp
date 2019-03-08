@@ -398,7 +398,7 @@ void EditorScene::deleteScene(const QUrl &fileUrl, bool autosave)
 
 QString EditorScene::cameraName(int index) const
 {
-    if (m_sceneCameras.size() > index)
+    if (m_sceneCameras.size() > index && index>-1)
         return m_sceneCameras.at(index).cameraEntity->objectName();
     else
         return QString();

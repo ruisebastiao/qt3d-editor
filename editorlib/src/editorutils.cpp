@@ -955,13 +955,16 @@ Qt3DRender::QGeometryRenderer *EditorUtils::entityMesh(Qt3DCore::QEntity *entity
 
 Qt3DRender::QCameraLens *EditorUtils::entityCameraLens(Qt3DCore::QEntity *entity)
 {
-    Qt3DCore::QComponentVector components = entity->components();
-    for (int i = 0; i < components.size(); i++) {
-        Qt3DRender::QCameraLens *lens
-                = qobject_cast<Qt3DRender::QCameraLens *>(components.value(i));
-        if (lens)
-            return lens;
+    if(entity){
+        Qt3DCore::QComponentVector components = entity->components();
+        for (int i = 0; i < components.size(); i++) {
+            Qt3DRender::QCameraLens *lens
+                    = qobject_cast<Qt3DRender::QCameraLens *>(components.value(i));
+            if (lens)
+                return lens;
+        }
     }
+
 
     return nullptr;
 }
